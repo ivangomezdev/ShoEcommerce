@@ -2,16 +2,16 @@ import { getOrderById } from "@/controllers/orderBuy";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  request: NextRequest, // Primer argumento: la solicitud (NextRequest)
-  { params }: { params: { productId: string } } // Segundo argumento: contexto con params
+  request: NextRequest,
+  context: { params: { productId: string } }
 ) {
   console.log(request);
   
-  const { productId } = params;
+  const { productId } = context.params;
 
-  // Llamar a la función para obtener la orden por ID
+  // Call the function to get the order by ID
   const order = await getOrderById(productId);
 
-  // Devolver la respuesta en formato JSON
+  // Return the response in JSON format
   return NextResponse.json(order);
 }
