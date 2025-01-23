@@ -39,9 +39,9 @@ export async function createSingleProductPreference(
       ],
 
       back_urls: {
-        success: "https://donate-appv2.vercel.app/donate/success",
-        failure: "https://donate-appv2.vercel.app/donate/failure",
-        pending: "https://donate-appv2.vercel.app/donate/pending",
+        success: "https://shoecommerce-two.vercel.app/donate/success",
+        failure: "https://shoecommerce-two.vercel.app/donate/failure",
+        pending: "https://shoecommerce-two.vercel.app/donate/pending",
       },
 
       external_reference: options.transactionId,

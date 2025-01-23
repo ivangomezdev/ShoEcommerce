@@ -16,9 +16,12 @@ export const algoliaSearch = async (query:string,limit:number) =>{
    const data =  index.search(query, {
         hitsPerPage: limit,
       }).then(({ hits }) => {
+        console.log(hits);
        return hits
       });
 
+
+      
       return data
       
 }
