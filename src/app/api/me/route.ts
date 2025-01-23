@@ -3,10 +3,7 @@ import { changeMeData, meData } from "@/controllers/meController";
 import { NextRequest, NextResponse } from "next/server";
 
 
-interface RequestBody {
-  name:string,
-  email:string
-}
+
 export async function GET() {
     meData("1")
     
@@ -15,8 +12,8 @@ export async function GET() {
 
 
 export async function PATCH(request: NextRequest) {
-
-    const body: any  = request.body
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  const body = await request.json();
     changeMeData("1",body)
     
     return NextResponse.json({ dataModificada: body});
