@@ -12,7 +12,7 @@ export async function GET() {
 
 
 export async function PATCH(request: NextRequest) {
-  // eslint-disable-next-line @typescript-eslint/ban-types
+
   const body = await request.json();
     changeMeData("1",body)
     
