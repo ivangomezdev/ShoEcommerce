@@ -1,22 +1,15 @@
 
+import { getProductById } from "@/controllers/productsController";
 import { NextRequest, NextResponse } from "next/server";
 
-type Params = {
-  id: string;
-};
-export async function GET(req:NextRequest,{ params }: { params: Params }) {
-  const { id } = await params;
-  console.log(id);
-  
 
+export async function GET(req:NextRequest) {
+console.log(req.url);
+const pathname = req.url;
+const segments = pathname.split('/');
+const id = segments[segments.length - 1];
 
-  
+const myProduct = await getProductById(id);
 
-  /*if (!request) {
-    return NextResponse.json({ error: "Product ID is required" }, { status: 400 });
-  }
-*/
-  //const myProduct = await getProductById(request);
-
- return NextResponse.json("myProduct");
+ return NextResponse.json(myProduct);
 }
