@@ -2,6 +2,11 @@
 import { changeMeData, meData } from "@/controllers/meController";
 import { NextRequest, NextResponse } from "next/server";
 
+
+interface RequestBody {
+  name:string,
+  email:string
+}
 export async function GET() {
     meData("1")
     
@@ -10,8 +15,11 @@ export async function GET() {
 
 
 export async function PATCH(request: NextRequest) {
-    const body = request.body as {}
+
+    const body: any  = request.body
     changeMeData("1",body)
     
     return NextResponse.json({ dataModificada: body});
+
+
   }

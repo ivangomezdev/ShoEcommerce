@@ -6,7 +6,7 @@ export const meData = async (userId:string) =>{
     return uData
 }
 
-export const changeMeData = async (userId:string,data:{}) =>{
+export const changeMeData = async (userId:string,data:any) =>{
     await User.update(
         data,
         {
