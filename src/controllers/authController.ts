@@ -1,5 +1,5 @@
 import { sendVerificationEmail } from "@/lib/nodeMailer";
-import { User, Auth } from "../models/relations";
+import {  Auth } from "../models/relations";
 import { singToken } from "../lib/jsonwebtoken";
 
 //Creamos / encontramos un usuario x su email (de no existir lo creamos)

@@ -35,6 +35,9 @@ const getProductFromDb = async (idProd: string) => {
     message: productDescription as string,
   });
 
+  console.log(newPurchId,"purchId");
+  
+
   //creo la pref en MP
   const newPref = await createSingleProductPreference({
     productName: productName as string,
@@ -71,4 +74,5 @@ export async function createPurchase(
 
 export const getOrderById = (id:string) =>{
 const order = Payment.findOne({where: {id: id}})
+return order
 }

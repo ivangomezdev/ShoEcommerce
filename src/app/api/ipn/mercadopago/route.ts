@@ -4,7 +4,7 @@ import { confirmPurchase } from "@/lib/purchase";
 export async function POST(request: Request) {
     const body: WebhokPayload = await request.json();
   
-    const mpPayment = await getPaymentById(body.data.id);
+    //const mpPayment = await getPaymentById(body.data.id);
   
     if (body.type === "payment") {
       const mpPayment = await getPaymentById(body.data.id);

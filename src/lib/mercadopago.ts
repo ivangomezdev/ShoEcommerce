@@ -7,7 +7,7 @@ const client = new MercadoPagoConfig({
   options: { timeout: 5000, idempotencyKey: "abc" },
 });
 
-const BASE_URL = process.env.VERCEL_URL || "donate-appv2.vercel.app";
+
 
 // Step 3: Initialize the API object
 const pref = new Preference(client);
