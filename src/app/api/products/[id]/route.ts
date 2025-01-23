@@ -1,12 +1,10 @@
-import { getProductById } from "@/controllers/productsController";
-import { NextApiRequest } from "next";
-import { Params } from "next/dist/server/request/params";
+
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = {
   id: string;
 };
-export async function GET(req:NextApiRequest,{ params }: { params: Params }) {
+export async function GET(req:NextRequest,{ params }: { params: Params }) {
   const { id } = await params;
   console.log(id);
   
