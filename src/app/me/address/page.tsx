@@ -7,7 +7,7 @@ import "../registerPage.css";
 import Link from "next/link";
 
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <img
@@ -33,4 +33,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

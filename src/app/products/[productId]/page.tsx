@@ -10,7 +10,7 @@ import { useAtom } from "jotai";
 import { cartAtom } from "@/hooks/UseCart";
 import MySnackbar from "@/components/SnackBar";
 
-const page = () => {
+const Page = () => {
   const params = useParams();
   const [cart, setCart] = useAtom(cartAtom);
   const productId = params.productId as string;
@@ -102,4 +102,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

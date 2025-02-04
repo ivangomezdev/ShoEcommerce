@@ -2,7 +2,7 @@ import React from 'react'
 import Headers from "../../components/layouts/Header"
 import SearchUi from '../../components/SearchUi'
 import { inputData } from '../../utils/searchUiData'
-const page = () => {
+const Page = () => {
   return (
     <div>
       <Headers/>
@@ -12,4 +12,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

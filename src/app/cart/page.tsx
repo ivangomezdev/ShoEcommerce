@@ -6,7 +6,7 @@ import CartCheckOut from '@/components/CartCheckOut'
 import Link from 'next/link'
 
 
-const page = () => {
+const Page = () => {
 
   return (
     <div>
@@ -18,4 +18,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

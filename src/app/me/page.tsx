@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 
-const page = () => {
+const Page = () => {
   const [cookies] = useCookies(["token"]); // Leer las cookies
   const router = useRouter()
   
@@ -50,4 +50,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

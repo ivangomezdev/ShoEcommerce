@@ -16,7 +16,7 @@ const SearchUi = ({ sideChecks }: searchUiTypes) => {
     {
       productImage: string;
       productName: string;
-      productPrice: String;
+      productPrice: string;
       productCategory: string;
       brand: string;
       productId: string;
@@ -34,9 +34,9 @@ const SearchUi = ({ sideChecks }: searchUiTypes) => {
   };
 
   //Creo las cards
-  const CardProducts = product.map((i) => {
+  const CardProducts = product.map((i,index) => {
     return (
-      <div className="searchUi__Card">
+      <div key={index} className="searchUi__Card">
         <img className="searchUi__Cardimg" src={i.productImage}></img>
         <img className="searchUi__brand" src={i.brand} alt="" />
         <div>

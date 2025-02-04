@@ -1,7 +1,13 @@
 import { useCookies } from "react-cookie";
 import useSWR from "swr";
+type DataForm = {
+  email?:string,
+  code?:string,
+  name?:string,
+  address?:string
+}
 
-export const fetcherAuth = async (url: string, body: {}, token: string) => {
+export const fetcherAuth = async (url: string, body: DataForm, token: string) => {
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -23,7 +29,7 @@ export const fetcherAuth = async (url: string, body: {}, token: string) => {
 
 export const useApiRequest = (
   path: string,
-  dataForm: any,
+  dataForm: DataForm,
   submitted: boolean
 ) => {
   const [cookies] = useCookies(["token"]);

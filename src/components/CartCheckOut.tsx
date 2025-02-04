@@ -7,7 +7,7 @@ import PaymentComponent from "./PaymentComponent";
 const CartCheckOut = () => {
   const [cart, setCart] = useAtom(cartAtom);
   // Sumamos los costos
-  let reduce = cart.reduce((sum, actual) => sum + actual.productPrice, 0);
+  const reduceNum = cart.reduce((sum, actual) => sum + actual.productPrice, 0);
 
   // Usamos localStorage para almacenar el carrito al montar la página (solo una vez)
   useEffect(() => {
@@ -45,7 +45,7 @@ const CartCheckOut = () => {
    {checkOutProducts}
     <br />
     </div>
-    <p className="cartCheckOut__price">Total: ${reduce}</p>
+    <p className="cartCheckOut__price">Total: ${reduceNum}</p>
    <PaymentComponent/>
 
   </div>;
