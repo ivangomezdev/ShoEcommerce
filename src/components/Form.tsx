@@ -18,9 +18,9 @@ type FormTypes = {
 };
 
 const Form = ({ data, formButtonText, path }: FormTypes) => {
-  const [cookies, setCookie] = useCookies(["token"]);
+
   const { dataForm, handleSubmit, submitted } = useFormHandler();
-  console.log(cookies);
+
   
 
 //fetch
@@ -31,7 +31,8 @@ const Form = ({ data, formButtonText, path }: FormTypes) => {
     if (!response) return; // No hacer nada si no hay respuesta
     const [cookies, setCookie] = useCookies(["token"]);
     const currentPath = window.location.pathname; // Obtener solo la ruta, sin dominio
-  
+    console.log(cookies);
+    
     switch (currentPath) {
       case "/auth":
         window.location.href = "/auth/token";

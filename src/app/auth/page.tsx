@@ -37,7 +37,7 @@ const page = () => {
             No tienes cuenta aún? <span>Crea una gratis</span>
           </p>
         </div>
-        <img className="auth__shoesimg" src="/assets/shoes.jpg" alt="" />
+        <Image className="auth__shoesimg" src="/assets/shoes.jpg" alt="" />
       </div>
     </>
   );

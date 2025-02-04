@@ -14,6 +14,8 @@ export const createOrFindUser = async (email: string) => {
     },
   });
 
+  console.log(userCreated);
+  
   // Buscar o crear autenticación asociada al usuario
   const [auth, created] = await Auth.findOrCreate({
     where: { userId: user.get("id") }, // Buscamos por userId en vez de email
@@ -24,6 +26,8 @@ export const createOrFindUser = async (email: string) => {
       userId: user.get("id"), // Asociamos el auth al usuario
     },
   });
+
+  console.log(auth);
 
   // Enviar email con el código si es necesario
   if (created) {

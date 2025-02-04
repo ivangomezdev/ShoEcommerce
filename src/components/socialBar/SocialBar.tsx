@@ -4,6 +4,7 @@ import { Facebook02Icon, Mail01Icon, TwitterIcon } from '../ui/icons/Social'
 import "./socialBar.css"
 import Link from 'next/link'
 import { useCookies } from 'react-cookie'
+
 const SocialBar = () => {
   const [cookies] = useCookies(["token"]);
 
