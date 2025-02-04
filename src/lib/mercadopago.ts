@@ -13,30 +13,27 @@ const client = new MercadoPagoConfig({
 const pref = new Preference(client);
 
 type CreatePrefOptions = {
+  items:{
   productName: string;
-  productDescription: string;
   productId: string;
   productPrice: number;
-  transactionId: string;
+}[],
+transactionId: string;
 };
 
-export async function createSingleProductPreference(
+export async function createProductPreference(
   options: CreatePrefOptions
 ) {
 
   return pref.create({
     body: {
-      items: [
-        {
-          id: options.productId,
-          title: options.productName,
-          description: options.productDescription,
-          quantity: 1,
-          currency_id: "ARS",
-          unit_price: options.productPrice,
-          
-        },
-      ],
+      items: options.items.map(item => ({
+        id: item.productId,
+        title: item.productName,
+        quantity: 1, // Cambia esto si necesitas manejar cantidades diferentes
+        currency_id: "ARS",
+        unit_price: item.productPrice,
+      })),
 
       back_urls: {
         success: "https://shoecommerce-two.vercel.app/donate/success",

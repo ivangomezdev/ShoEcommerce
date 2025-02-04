@@ -1,0 +1,55 @@
+.header__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  height: 100px;
+  margin: 0 auto;
+  border-bottom: 1px rgba(128, 128, 128, 0.353) solid;
+
+}
+
+.header__logo {
+  width: 150px;
+}
+
+.header__ul {
+  display: flex;
+  gap: 40px;
+}
+
+.header__ul li {
+  list-style-type: none;
+  font-size: 17px;
+  position: relative;
+}
+
+.header__ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.header__ul li:hover::after {
+  width: 100%;
+}
+
+.header__icons svg{
+ margin-left: 20px;
+ margin-bottom: 10px;
+ width: 23px;
+}
+
+
+.header__badge{
+position: relative;
+right: 10px;
+top: 3px;
+font-size: 9px;
+background-color: rgba(255, 0, 0, 0.811) !important;
+}

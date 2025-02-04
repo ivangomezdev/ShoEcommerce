@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   
     if (body.type === "payment") {
       const mpPayment = await getPaymentById(body.data.id);
-      console.log("TP PAYMENT");
+
       
       if (mpPayment.status === "approved") {
   

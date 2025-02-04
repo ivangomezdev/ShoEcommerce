@@ -30,6 +30,9 @@ Product.init(
     productImage:{
         type: DataTypes.STRING,
   
+    },
+    brand:{
+      type:DataTypes.STRING
     }
   },
   { sequelize, modelName: "Product" }

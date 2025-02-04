@@ -1,0 +1,20 @@
+.boxLogin__cont{
+    background-color: #AE3F4F;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 60px auto;
+}
+
+.boxLogin__cont h1{
+    font-size: 50px;
+   color:  white;
+   text-align: center;
+    margin-left: 35px;
+    margin-top: 30px;
+}
+
+.boxLogin__cont button{
+   margin-top: 40px;
+    align-items: center;
+}

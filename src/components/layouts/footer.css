@@ -1,0 +1,13 @@
+.footer__cont{
+    margin-top: 50px;
+    background-color: #EAEAE2;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+
+}
+
+.footer__cont img{
+width: 100px;
+}

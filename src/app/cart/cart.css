@@ -1,0 +1,16 @@
+.cartPage__cart{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.cartPage__backButton{
+    background-color: #0A58CA;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}

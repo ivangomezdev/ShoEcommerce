@@ -1,0 +1,35 @@
+.product__Card{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    
+
+}
+
+
+
+.product__Text{
+    margin-top: 100px;
+
+    padding: 10px;
+    height: 120px;
+
+}
+
+.product__Text h1{
+    text-shadow: 1px -1px 3px rgba(243, 215, 3, 0.6);
+
+}
+
+.product__Text button{
+margin-top: 20px;
+}
+
+.product__button{
+    padding: 7px;
+    background-color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    width: 180px;
+}

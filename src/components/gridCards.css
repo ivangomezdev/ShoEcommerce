@@ -1,0 +1,52 @@
+.gridCards__content {
+  margin-top: 60px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap; /* Permite que las cards se envuelvan en varias líneas */
+  gap: 16px; /* Espacio entre las cards */
+  justify-content: center; /* Centra las cards horizontalmente */
+  margin-bottom: 100px;
+  
+}
+
+.gridCards__card {
+  overflow: hidden;
+  position: relative;  
+  height: 300px;
+}
+
+.gridCards__card img {
+    display:block;
+  border-radius: 5px;
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+  transition: transform 3s ease; /* Suaviza la animación */
+  transform-origin: center center; /* El zoom se aplica desde el centro */
+}
+
+.gridCards__card img:hover {
+  background-color: red;
+  transform: scale(1.5); /* Escala la imagen al 150% de su tamaño original */
+}
+
+
+
+.gridCards__text {
+  position: relative;
+  width: 130px;
+  bottom: 230px;
+  left: 20px;
+}
+
+.gridCards__text p {
+  color: black;
+}
+
+.gridCards__text span {
+  display: block;
+}
+
+
+.gridCards__text a {
+  color: #ae3f4f;
+  font-size: 18px;
+}

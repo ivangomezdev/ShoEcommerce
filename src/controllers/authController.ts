@@ -1,23 +1,34 @@
 import { sendVerificationEmail } from "@/lib/nodeMailer";
-import {  Auth } from "../models/relations";
+import { Auth, User } from "../models/relations";
 import { singToken } from "../lib/jsonwebtoken";
 
-//Creamos / encontramos un usuario x su email (de no existir lo creamos)
 export const createOrFindUser = async (email: string) => {
   const newCode = createCode() as number;
 
-  const [auth, created] = await Auth.findOrCreate({
-    where: { email: email },
+  // Buscar o crear usuario
+  const [user, userCreated] = await User.findOrCreate({
+    where: { email },
     defaults: {
-      verificationCode: newCode,
-      codeUsed: false,
+      name: "undefined",
+      address: "undefined",
     },
   });
 
-  //si el usuario fue creado/encontrado enviamos un email con el codigo
-  if (auth && created == true) {
+  // Buscar o crear autenticación asociada al usuario
+  const [auth, created] = await Auth.findOrCreate({
+    where: { userId: user.get("id") }, // Buscamos por userId en vez de email
+    defaults: {
+      email, // Guardamos el email también
+      verificationCode: newCode,
+      codeUsed: false,
+      userId: user.get("id"), // Asociamos el auth al usuario
+    },
+  });
+
+  // Enviar email con el código si es necesario
+  if (created) {
     sendVerificationEmail(email, newCode);
-  } else if (auth && created == false) {
+  } else {
     newCodeGenerate(email, newCode);
     sendVerificationEmail(email, newCode);
   }
@@ -31,21 +42,19 @@ const createCode = () => {
   return randomNumber;
 };
 
-
-
 //validar codigo
 export const validateCode = async (code: number, email: string) => {
   const validate = await Auth.findOne({ where: { verificationCode: code } });
-  if (validate) {
-      const authId = await validate.get("id") as string;
-    changeStatusCode(email);
-    singToken(authId)
-  } else {
-    console.log("codigo incorrecto");
+  if (!validate) {
+    console.log("❌ Código incorrecto");
+    return null; // Evita continuar si la validación falla
   }
-  return validate;
-};
 
+  const authId = validate.get("id") as string;
+  await changeStatusCode(email);
+
+  return singToken(authId); // Solo ejecuta esto si el código es válido
+};
 
 //Cambiar Status a USADO ((TRUE))
 export const changeStatusCode = async (email: string) => {
@@ -58,7 +67,6 @@ export const changeStatusCode = async (email: string) => {
     }
   );
 };
-
 
 // Generar nuevo codigo para usuarios creados anteriormente
 export const newCodeGenerate = async (email: string, code: number) => {

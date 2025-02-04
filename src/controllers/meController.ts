@@ -12,6 +12,8 @@ export const meData = async (userId:string) =>{
 }
 
 export const changeMeData = async (userId:string,data:MeData) =>{
+
+  
     await User.update(
         data,
         {
@@ -43,5 +45,7 @@ export const changeMeAddress = async (userId:string,address:string) =>{
 export const getMePayments = async () =>{
 
  const findAllMyPayments = await Payment.findAll()
+ console.log(findAllMyPayments);
+ 
  return findAllMyPayments
 }

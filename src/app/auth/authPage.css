@@ -1,0 +1,39 @@
+.auth__text {
+  position: relative;
+  top: 100px;
+  left: 200px;
+}
+
+.auth__page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth__shoesimg {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+@media (max-width: 1270px) {
+  .auth__shoesimg {
+    display: none;
+  }
+  .auth__text {
+    position: inherit;
+    margin: 0 auto;
+  }
+}
+
+
+
+.auth__page p{
+    margin-top: 20px;
+   font-size: 13px;
+   text-align: center;
+}
+
+.auth__page span{
+    font-weight: bold;
+    cursor:copy;
+}
