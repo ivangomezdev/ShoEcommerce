@@ -1,0 +1,18 @@
+
+.aboutPage__content {
+  text-align: center;
+  padding: 5px;
+  margin-top: 70px;
+}
+
+.aboutPage__content p {
+  color: gray;
+  max-width: 600px;
+  margin: 39px auto;
+}
+
+.aboutPage__content button {
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}

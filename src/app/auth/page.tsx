@@ -23,7 +23,7 @@ const Page = () => {
   
   return (
     <>
-      <Image alt="img"
+      <img alt="img"
         style={{ width: "140px", padding: "10px" }}
         src="/assets/shoecommerce.png"
       />
@@ -37,7 +37,7 @@ const Page = () => {
             No tienes cuenta aún? <span>Crea una gratis</span>
           </p>
         </div>
-        <Image className="auth__shoesimg" src="/assets/shoes.jpg" alt="" />
+        <img className="auth__shoesimg" src="/assets/shoes.jpg" alt="" />
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { BlackButton } from "@/components/ui/Buttons";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+
 
 
 const Page = () => {
@@ -24,7 +24,7 @@ const Page = () => {
 
   return (
     <>
-      <Image alt=""
+      <img alt=""
         style={{ width: "140px", padding: "10px" }}
         src="/assets/shoecommerce.png"
       />

@@ -7,7 +7,6 @@ export const navLinks: NavLink[] = [
   { text: "Inicio", href: "/" },
   { text: "Sobre nosotros", href: "/about" },
   { text: "Tienda", href: "/products" },
-  { text: "Contacto", href: "/contact" }
 ];
 
 

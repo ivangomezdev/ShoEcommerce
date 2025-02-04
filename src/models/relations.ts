@@ -19,6 +19,8 @@ User.hasOne(Auth, {
     as: "user",
   });
 
+
+
 // Relación entre User y Cart
 User.hasOne(Cart, { foreignKey: "user_id" });
 Cart.belongsTo(User, { foreignKey: "user_id" });

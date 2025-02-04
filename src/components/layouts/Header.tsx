@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import { navLinks } from "@/utils/RenderNavLinks/navData";
 import "./header.css";
@@ -6,20 +6,19 @@ import { Search01Icon, ShoppingCart02Icon, UserIcon } from "../ui/icons/Header";
 import Link from "next/link";
 import { useAtom } from "jotai";
 import { cartAtom } from "@/hooks/UseCart";
-import { CBadge } from "@coreui/react";
+import Badge from "@mui/joy/Badge";
 
 const Header = () => {
-
   const [cart, setCart] = useAtom(cartAtom);
-  
-    useEffect(()=>{
-      const cartData = localStorage.getItem("cart")
-      if (cartData) {
-        setCart(JSON.parse(cartData))
-        
-      }
-    },[])
-    
+
+  //Colocamos la data en el cart
+  useEffect(() => {
+    const cartData = localStorage.getItem("cart");
+    if (cartData) {
+      setCart(JSON.parse(cartData));
+    }
+  }, []);
+
   const navRender = navLinks.map((link, index) => (
     <li key={index}>
       <Link
@@ -43,15 +42,18 @@ const Header = () => {
         <Link href={"/products"}>
           <Search01Icon />
         </Link>
-        <Link style={{textDecoration:"none"}} href={"/me"}>
-          
+        <Link style={{ textDecoration: "none" }} href={"/me"}>
           <UserIcon />
         </Link>
-        <Link  href={"/cart"}>
-          <ShoppingCart02Icon />
-          <CBadge className="header__badge" color="danger"  shape="rounded-pill">
-          {cart.length}
-        </CBadge>
+        <Link href={"/cart"}>
+          <Badge
+            size="sm"
+            variant="soft"
+            className="header__badge"
+            badgeContent={cart.length}
+          >
+            <ShoppingCart02Icon />
+          </Badge>
         </Link>
       </div>
     </div>
