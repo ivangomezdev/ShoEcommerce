@@ -1,7 +1,7 @@
 import { verifyToken } from "@/lib/jsonwebtoken";
 import { createProductPreference } from "@/lib/mercadopago";
 import { Payment } from "@/models/buy";
-import { JWTPayload, SignJWT } from "jose";
+import { JWTPayload } from "jose";
 import { NextRequest, NextResponse } from "next/server";
 interface Product {
   productName: string;

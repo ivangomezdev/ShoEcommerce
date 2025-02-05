@@ -7,6 +7,7 @@ export async function POST(request: Request) {
     if (body.type === "payment") {
       const mpPayment = await getPaymentById(body.data.id);
 
+
       
       if (mpPayment.status === "approved") {
   
@@ -17,6 +18,8 @@ export async function POST(request: Request) {
         await confirmPurchase(purchaseId as string);
       }
     }
+
+    
   
     return Response.json({ received: true });
   }
