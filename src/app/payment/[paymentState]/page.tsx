@@ -3,8 +3,13 @@
 import React from 'react'
 import "./paymentStatus.css"
 import PaymentStatusCard from '@/components/PaymentCard'
+import { usePaymentData } from '@/hooks/UseCart'
 const Page = () => {
-     
+const {data,isLoading} = usePaymentData()
+
+console.log(data);
+
+
     
      
   return (

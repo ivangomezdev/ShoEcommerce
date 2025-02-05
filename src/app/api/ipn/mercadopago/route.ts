@@ -16,6 +16,8 @@ export async function POST(request: Request) {
         console.log(purchaseId,"REF EXTERNA PARA VNCULAR CON EL USERID");
         
         await confirmPurchase(purchaseId as string);
+
+        return Response.json({ purchaseId });
       }
     }
 
