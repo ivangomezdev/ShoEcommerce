@@ -38,7 +38,7 @@ const SimilarProducts = () => {
     <div className="similarProducts__content">
       {isLoading == false && (
         <>
-          <h3>Productos similares</h3>
+          <h3 className="similarProducts__title">Productos similares</h3>
           <div className="similarProducts__products">{similarProds}</div>
         </>
       )}

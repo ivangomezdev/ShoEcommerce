@@ -1,6 +1,7 @@
 .similarProducts__products{
     display: flex;
-    
+    flex-wrap: wrap;
+   
 }
 
 
@@ -8,4 +9,15 @@
 
 .similarProducts__content{
     margin-left: 100px;
+}
+
+@media(max-width:700px){
+    .similarProducts__products{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 130px;
+    }
+    .similarProducts__title{
+        display: none;
+    }
 }

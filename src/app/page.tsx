@@ -16,13 +16,19 @@ export default function Home() {
   return (
     <>
       <SocialBar />
+      <header>
       <Header />
+      </header>
+      <main>
       <CarouselCrossfadeExample data={carouselData}/>
       <GridCards data={cardData}/>
       <ShoesPreview />
       <CarouselCrossfadeExample data={carouselUniqueData}/>
       <BoxLogin/>   
+      </main>
+      <footer>
      <Footer />  
+     </footer>
     </>
   );
 }

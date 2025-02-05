@@ -1,7 +1,6 @@
 .carousel__item {
   position: relative;
 
-  overflow: hidden;
 }
 
 .carousel__item img {
@@ -24,4 +23,57 @@
   top: 100px;
   left: 46%;
   z-index: 9999 !important;
+}
+
+
+@media(max-width:1300px){
+  .carousel__textContent {
+    position: absolbute;
+   top: 60px;
+   left: 20%;
+     
+   }
+
+
+  .carousel__textContent h1{
+   width: 100%;
+   
+   font-size: 55px;
+    
+  }
+}
+
+@media(max-width:1220px){
+  .carousel__textContent button {
+    display: none;
+     
+   }
+
+
+
+}
+
+
+@media(max-width:1030px){
+  .carousel__textContent h1{
+  
+    
+    font-size: 35px;
+     
+   }
+}
+
+
+@media(max-width:770px){
+  .carousel__textContent h1{
+  
+    
+    font-size: 25px;
+     
+   }
+
+   .carousel__description{
+  display: none;
+     
+   }
 }

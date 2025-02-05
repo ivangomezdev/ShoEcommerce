@@ -18,3 +18,12 @@
    margin-top: 40px;
     align-items: center;
 }
+
+
+@media (max-width: 1118px) {
+    .boxLogin__cont img{
+      display: none !important;
+    }
+  }
+
+

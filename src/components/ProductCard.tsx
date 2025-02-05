@@ -10,8 +10,8 @@ type ProductType = {
   productImage: string;
   productPrice: string;
   productName: string;
-  productStock:string;
-  productId:string;
+  productStock: string;
+  productId: string;
 };
 
 const ProductCard = () => {
@@ -26,20 +26,22 @@ const ProductCard = () => {
 
   const MapFourProducts = onlyFourProds.map((i, index) => {
     return (
-       <> 
-        {isLoading == true ? <Loading/> : 
-      <div className="productCard__card" key={index}>
-        <img src={i.productImage} alt="" />
-        <div className="productCard__textcont">
-          <p>${i.productPrice}</p>
-          <h5>{i.productName}</h5>
-          <p>En Stock: {i.productStock}</p>
-        </div>
-       <Link href={`/products/${i.productId}`}>
-        <ShoppingCart02Icon/>
-        </Link> 
-        </div>
-      }
+      <>
+        {isLoading == true ? (
+          <Loading />
+        ) : (
+          <div className="productCard__card" key={index}>
+            <img src={i.productImage} alt="" />
+            <div className="productCard__textcont">
+              <p>${i.productPrice}</p>
+              <h5>{i.productName}</h5>
+              <p>En Stock: {i.productStock}</p>
+            </div>
+            <Link href={`/products/${i.productId}`}>
+              <ShoppingCart02Icon />
+            </Link>
+          </div>
+        )}
       </>
     );
   });

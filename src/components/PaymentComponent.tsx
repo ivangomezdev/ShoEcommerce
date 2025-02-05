@@ -3,23 +3,26 @@ import { cartAtom } from '@/hooks/UseCart';
 import axios from 'axios';
 import { useAtom } from 'jotai';
 import { BlackButton } from './ui/Buttons';
+import { useCookies } from 'react-cookie';
 
 
 const PaymentComponent = () => {
   const [cartItems] = useAtom(cartAtom); //los items del carrito
-
+ const [cookies] = useCookies(["token"])
   const handlePayment = async () => {
     if (cartItems.length === 0) {
       console.error("No hay productos en el carrito.");
       return;
     }
+    const transactionIdRandom = Math.floor(Math.random() + 1000)
 
-    const transactionId = "transaccion_123"; // Genera o maneja un ID de transacción único
+    const transactionId = transactionIdRandom; // Genera o maneja un ID de transacción
 
     try {
       const response = await axios.post('/api/order', {
         items: cartItems,
         transactionId,
+        cookies
       });
 
       // Redirige al usuario a la URL de pago

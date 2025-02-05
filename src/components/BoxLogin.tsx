@@ -11,7 +11,7 @@ const BoxLogin = () => {
         <h1>Registrate para un descuento especial</h1>
         <BlackButton><Link style={{color:"white",textDecoration:"none"}} href="/register">REGISTRO %10 OFF</Link></BlackButton>
       </div>
-      <img src="/assets/loginnews.webp" />
+      <img className="boxLogin__img" src="/assets/loginnews.webp" />
     </div>
   );
 };

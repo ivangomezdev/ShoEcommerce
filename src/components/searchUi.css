@@ -137,3 +137,10 @@
 .searchUi__load{
   margin:0 auto;
 }
+
+
+@media(max-width:570px){
+  .SearchUi__side{
+    display: none;
+  }
+}

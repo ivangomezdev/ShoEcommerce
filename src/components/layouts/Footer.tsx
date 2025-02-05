@@ -3,7 +3,7 @@ import React from 'react'
 import "./footer.css"
 const Footer = () => {
   return (
-    <footer className='footer__cont'>
+    <div className='footer__cont'>
   <div>
     <span>&copy; 2025 ShoEcommerce.</span>
   </div>
@@ -13,7 +13,7 @@ const Footer = () => {
   </div>
 
   <img src='/assets/mercadopago.webp'></img>
-</footer>
+</div>
   )
 }
 

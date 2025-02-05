@@ -2,6 +2,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./carousel.css";
+import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+import { RedButton } from "./ui/Buttons";
+import { Bigh1, SubP, PrimaryP } from "./ui/Fonts";
+import Link from "next/link";
+
 
 type TextAlign = 'left' | 'right' | 'center' | 'justify' | 'start' | 'end';
 type LeftPos = '1px' | '40px';
@@ -18,19 +23,16 @@ type CarouselProps = {
   }[];
 };
 
-import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
-import { RedButton } from "./ui/Buttons";
-import { Bigh1, SubP, PrimaryP } from "./ui/Fonts";
-import Link from "next/link";
+
 
 export const CarouselCrossfadeExample = ({ data }: CarouselProps) => {
   const carouselImagesMap = data.map((i, key) => {
     return (
-      <CCarouselItem className="carousel__item" key={key}>
+      <CCarouselItem  className="carousel__item" key={key}>
         <div style={{textAlign:i.align  as TextAlign ,marginRight:i.leftPos  as LeftPos}}  className="carousel__textContent">
           <SubP>{i.subText}</SubP>
           <Bigh1>{i.title}</Bigh1>
-          <PrimaryP>{i.primaryP}</PrimaryP>
+          <PrimaryP className="carousel__description">{i.primaryP}</PrimaryP>
           <Link href={"/products"}>
           <RedButton>{i.buttonText}</RedButton>
           </Link>
@@ -49,5 +51,6 @@ export const CarouselCrossfadeExample = ({ data }: CarouselProps) => {
     >
       {carouselImagesMap}
     </CCarousel>
+    
   );
 };

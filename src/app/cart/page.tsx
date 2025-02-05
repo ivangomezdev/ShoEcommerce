@@ -5,7 +5,8 @@ import "./cart.css"
 import CartCheckOut from '@/components/CartCheckOut'
 import Link from 'next/link'
 import { useCookies } from 'react-cookie'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
+
 
 
 const Page = () => {
