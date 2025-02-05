@@ -1,11 +1,11 @@
 "use client"
-import { useParams } from 'next/navigation'
+
 import React from 'react'
 import "./paymentStatus.css"
 import PaymentStatusCard from '@/components/PaymentCard'
 const Page = () => {
-     const pageParams = useParams()
-    const pageStatus = pageParams.paymentStatus as string
+     
+    
      
   return (
 <div >

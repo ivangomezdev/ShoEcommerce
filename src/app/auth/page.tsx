@@ -6,7 +6,7 @@ import "./authPage.css";
 import { formDataAuth } from "@/utils/formData";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
-import Image from "next/image";
+
 const Page = () => {
 
   const [cookies] = useCookies(["token"]); // Leer las cookies
