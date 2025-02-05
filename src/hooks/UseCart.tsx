@@ -10,7 +10,13 @@ export const cartAtom = atom<Product[]>([]);
 
 
 export const fetcher = async (url: string) => {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ /* tus datos aquí */ }),
+      });
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
