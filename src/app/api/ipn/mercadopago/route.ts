@@ -7,7 +7,9 @@ export async function POST(request: Request) {
     if (body.type === "payment") {
       const mpPayment = await getPaymentById(body.data.id);
 
-
+      const purchaseId = mpPayment.external_reference;
+      console.log(purchaseId,"purchId");
+      
       
       if (mpPayment.status === "approved") {
   
@@ -16,7 +18,8 @@ export async function POST(request: Request) {
         console.log(purchaseId,"REF EXTERNA PARA VNCULAR CON EL USERID");
         
         await confirmPurchase(purchaseId as string);
-
+       
+        console.log(purchaseId,"purchId");
         return Response.json({ purchaseId });
       }
     }
