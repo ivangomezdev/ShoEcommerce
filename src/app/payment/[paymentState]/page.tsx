@@ -18,11 +18,11 @@ const Page = () => {
     <div>
 {isLoading ?  <>Cargando</> :
       <PaymentStatusCard
-        status={Paymentdata.status}
+        status="confirmed"
         to="ShoEcommerce@ecommerce.com"
-        amount={Paymentdata.amount}
-        date={Paymentdata.date}
-        paymentId={Paymentdata.transactionId}
+        amount={11}
+        date="1"
+        paymentId="2"
       />
     }
     </div>
