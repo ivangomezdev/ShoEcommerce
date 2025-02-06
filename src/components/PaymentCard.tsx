@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import "./paymentCard.css"
 interface PaymentStatusCardProps {
   status: "confirmed" | "pending" | "failed" 
@@ -25,14 +26,14 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
     <div className="card">
       <div className="card-content">
         <div>
-          <p className="status-label">Payment Status</p>
+          <p className="status-label">Estado del pago</p>
           <p className={`status-text ${statusColors[status]}`}>{statusText[status]}</p>
         </div>
 
         <div className="details">
           {to && (
             <div className="detail-row">
-              <span className="detail-label">To:</span>
+              <span className="detail-label">A:</span>
               <span className="detail-value">{to}</span>
             </div>
           )}
@@ -41,11 +42,11 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
             <span className="detail-value">{date}</span>
           </div>
           <div className="detail-row">
-            <span className="detail-label">Amount:</span>
+            <span className="detail-label">Costo:</span>
             <span className="detail-value">₹{amount.toLocaleString()}</span>
           </div>
           <div className="detail-row">
-            <span className="detail-label">Payment ID:</span>
+            <span className="detail-label">IDPago:</span>
             <span className="detail-value">{paymentId}</span>
           </div>
         </div>
@@ -64,9 +65,9 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
               </svg>
             </div>
             <div>
-              <p className="status-message">We have initiated the payment request</p>
+              <p className="status-message">Se inicio el pedido de pago</p>
               <p className="status-date">{date}</p>
-              <p className="status-state">Completed</p>
+              <p className="status-state">Completo</p>
             </div>
           </div>
 
@@ -84,9 +85,9 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
                 </svg>
               </div>
               <div>
-                <p className="status-message">We have successfully received the payment</p>
+                <p className="status-message">Recibimos correctamente el pago</p>
                 <p className="status-date">{date}</p>
-                <p className="status-state">Completed</p>
+                <p className="status-state">Completo</p>
               </div>
             </div>
           )}
@@ -97,8 +98,8 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
                 <div className="spinner"></div>
               </div>
               <div>
-                <p className="status-message">We are waiting for a confirmation by the service provider</p>
-                <p className="status-note">In case your payment fails, the debited money will be refunded to you</p>
+                <p className="status-message">Estamos esperando la confirmación de pago</p>
+                <p className="status-note">En caso de que el pago falle se reembolsara el monto total en tu cuenta</p>
               </div>
             </div>
           )}
@@ -117,28 +118,28 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
                 </svg>
               </div>
               <div>
-                <p className="status-message">Your bank has not been able to process the refund request on time</p>
+                <p className="status-message">La entidad bancaria no responde</p>
               </div>
             </div>
           )}
         </div>
 
-        {status === "confirmed" && <button className="action-button">Proceed</button>}
+        {status === "confirmed" && <Link href={"/products"}><button className="action-button">Seguir comprando</button></Link>}
 
         {status === "failed" && (
           <div className="failed-actions">
-            <button className="action-button">Try Paying Again</button>
+            <Link href={"/cart"}><button className="action-button">Prueba nuevamente</button></Link>
             <p className="refund-note">
-              * Any amount deducted will be refunded to your payment source within 5-7 business days
+              *Cualquier reembolso puede demorar de 3 - 5 dias hábiles
             </p>
           </div>
         )}
 
         {status === "pending" && (
           <p className="concern-text">
-            To raise a concern,{" "}
+            Por una inquietud{" "}
             <a href="#" className="concern-link">
-              Click Here
+              Click aquí
             </a>
           </p>
         )}

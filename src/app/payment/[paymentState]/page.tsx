@@ -17,7 +17,7 @@ const Page = () => {
  
   
   return (
-    <div>
+    <div className="paymentStatus__cont">
 {isLoading ?  <>Cargando</> :
       <PaymentStatusCard
         status={payData.status}

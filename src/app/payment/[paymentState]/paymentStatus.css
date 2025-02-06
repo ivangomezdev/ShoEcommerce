@@ -3,3 +3,9 @@
     flex-direction: column;
     
 }
+
+.paymentStatus__cont{
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
