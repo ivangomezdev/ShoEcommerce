@@ -9,12 +9,14 @@ import { usePaymentData } from "@/hooks/UseCart";
 const Page = () => {
  
 
-  const { Paymentdata } = usePaymentData();
-
+  const { Paymentdata,isLoading } = usePaymentData();
+  console.log(Paymentdata);
+  console.log(Paymentdata.status);
  
   
   return (
     <div>
+{isLoading ?  <>Cargando</> :
       <PaymentStatusCard
         status={Paymentdata.status}
         to="ShoEcommerce@ecommerce.com"
@@ -22,6 +24,7 @@ const Page = () => {
         date={Paymentdata.date}
         paymentId={Paymentdata.transactionId}
       />
+    }
     </div>
   );
 };
