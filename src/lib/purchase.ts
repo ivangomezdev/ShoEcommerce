@@ -51,7 +51,7 @@ export async function confirmPurchase(purchaseId: string) {
     { status: "confirmed" },
     {
       where: {
-        id: purchaseId,
+        transactionId: purchaseId,
       },
     }
   );
