@@ -10,8 +10,8 @@ const Page = () => {
  
 
   const { Paymentdata,isLoading } = usePaymentData();
-  const parseData = Paymentdata
-  console.log(parseData);
+
+  console.log(Paymentdata?.paymentData);
   
   
   
