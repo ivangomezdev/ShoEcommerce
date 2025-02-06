@@ -19,10 +19,10 @@ export const fetcher = async (url: string) => {
   
 
   export function usePaymentData() {
-    const { data, error, isLoading } = useSWR('/api/order', fetcher);
+    const { data:Paymentdata, error, isLoading } = useSWR('/api/order', fetcher);
   
     return {
-      data,
+      Paymentdata,
       isLoading,
       error,
     };

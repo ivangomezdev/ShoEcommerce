@@ -56,17 +56,18 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  //busca la ref en los params
   const referer = request.headers.get("referer");
 
   if (!referer) {
     return NextResponse.json({ error: "No referer found" }, { status: 400 });
   }
-
+  //"parseamos" la URL para acceder a sus searchParams y asi buscar el er
   const url = new URL(referer);
   const searchParams = url.searchParams;
   const externalReference = searchParams.get("external_reference");
 
-  console.log(externalReference, "ESTE ES EL preferenceId");
+  // busco el pago en la DB
   const paymentData = await Payment.findOne({
     where: { transactionId: externalReference },
   });
