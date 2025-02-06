@@ -9,21 +9,21 @@ interface Product {
   productPrice: number;
 }
 export async function POST(request: NextRequest) {
-  const { items, transactionId,cookies} = await request.json();
-  
+  const { items, transactionId, cookies } = await request.json();
 
-  
   //sacamos el costo total
-  const totalPrice = items.reduce((sum:number, item:Product) => sum + item.productPrice, 0);
+  const totalPrice = items.reduce(
+    (sum: number, item: Product) => sum + item.productPrice,
+    0
+  );
   //creamos la fecha del paymentInit
-  const paymentDate = new Date()
+  const paymentDate = new Date();
   //verificamos el token y devolvemos el USERID
-   const token = cookies.token.token
-   
-   const verifiedToken = (await verifyToken(token)) as JWTPayload;
-   const userid = await JSON.stringify(verifiedToken.userId)
-  
-    
+  const token = cookies.token.token;
+
+  const verifiedToken = (await verifyToken(token)) as JWTPayload;
+  const userid = await JSON.stringify(verifiedToken.userId);
+
   if (!items || items.length === 0) {
     return NextResponse.json(
       { error: "No se han enviado productos" },
@@ -41,42 +41,35 @@ export async function POST(request: NextRequest) {
     transactionId,
   });
 
-  
   await Payment.sync();
   //Adjuntar pago en la DB
   Payment.create({
     userId: userid,
-    amount:totalPrice,
-    date:paymentDate,
-    status:"pending",
-    transactionId:transactionId,
-    
-    
-    })
-    
-    
-
+    amount: totalPrice,
+    date: paymentDate,
+    status: "pending",
+    transactionId: transactionId,
+  });
 
   // Devuelve la URL de redirección
   return NextResponse.json({ init_point: newPref.init_point });
 }
 
-export async function GET(request:NextRequest){
-  const referer = request.headers.get('referer');
-  console.log(referer,"ESTE ES EL REFERER");
-  
+export async function GET(request: NextRequest) {
+  const referer = request.headers.get("referer");
+
   if (!referer) {
-    return NextResponse.json({ error: 'No referer found' }, { status: 400 });
+    return NextResponse.json({ error: "No referer found" }, { status: 400 });
   }
-  
+
   const url = new URL(referer);
   const searchParams = url.searchParams;
-  const preferenceId = searchParams.get('preference_id');
-  console.log(searchParams,"ESTE ES EL searchParams");
-  console.log(preferenceId,"ESTE ES EL preferenceId");
-  const paymentData = await Payment.findOne({ where: { transactionId: preferenceId } });
+  const externalReference = searchParams.get("external_reference");
 
+  console.log(externalReference, "ESTE ES EL preferenceId");
+  const paymentData = await Payment.findOne({
+    where: { transactionId: externalReference },
+  });
 
-
-  return NextResponse.json({paymentData})
+  return NextResponse.json({ paymentData });
 }
