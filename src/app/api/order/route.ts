@@ -63,7 +63,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request:NextRequest){
   const referer = request.headers.get('referer');
-
+  console.log(referer,"ESTE ES EL REFERER");
+  
   if (!referer) {
     return NextResponse.json({ error: 'No referer found' }, { status: 400 });
   }
@@ -71,8 +72,8 @@ export async function GET(request:NextRequest){
   const url = new URL(referer);
   const searchParams = url.searchParams;
   const preferenceId = searchParams.get('preference_id');
-  
-  
+  console.log(searchParams,"ESTE ES EL searchParams");
+  console.log(preferenceId,"ESTE ES EL preferenceId");
   const paymentData = await Payment.findOne({ where: { transactionId: preferenceId } });
 
 
