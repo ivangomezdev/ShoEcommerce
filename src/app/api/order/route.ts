@@ -64,7 +64,10 @@ export async function POST(request: NextRequest) {
 export async function GET(request:NextRequest){
   const { searchParams } = request.nextUrl;
   const paymentRef = searchParams.get("external_reference")
-
+  console.log(searchParams);
+  console.log(paymentRef,"PAYMENT REF");
+  
+  
   const paymentData = await Payment.findOne({ where: { transactionId: paymentRef } });
 
   return NextResponse.json({paymentData})
