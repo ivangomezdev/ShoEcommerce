@@ -10,7 +10,10 @@ const Page = () => {
  
 
   const { Paymentdata,isLoading } = usePaymentData();
-  console.log(Paymentdata.paymentData);
+  const parseData = Paymentdata.json()
+  console.log(parseData);
+  
+  
   
  
   
