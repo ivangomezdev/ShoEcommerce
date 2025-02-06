@@ -1,7 +1,7 @@
 "use client"
 import "./paymentCard.css"
 interface PaymentStatusCardProps {
-  status: "successful" | "pending" | "failed"
+  status: "approved" | "pending" | "failed"
   to?: string
   amount: number
   date: string
@@ -10,13 +10,13 @@ interface PaymentStatusCardProps {
 
 export default function PaymentStatusCard({ status, to, amount, date, paymentId }: PaymentStatusCardProps) {
   const statusColors = {
-    successful: "text-emerald-600",
+    approved: "text-emerald-600",
     pending: "text-orange-500",
     failed: "text-red-600",
   }
 
   const statusText = {
-    successful: "Successful",
+    approved: "Successful",
     pending: "Pending",
     failed: "Failed",
   }
@@ -37,7 +37,7 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
             </div>
           )}
           <div className="detail-row">
-            <span className="detail-label">{status === "successful" ? "Executed On:" : "Initiated On:"}</span>
+            <span className="detail-label">{status === "approved" ? "Executed On:" : "Initiated On:"}</span>
             <span className="detail-value">{date}</span>
           </div>
           <div className="detail-row">
@@ -70,7 +70,7 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
             </div>
           </div>
 
-          {status === "successful" && (
+          {status === "approved" && (
             <div className="status-item">
               <div className="status-icon success">
                 <svg
@@ -123,7 +123,7 @@ export default function PaymentStatusCard({ status, to, amount, date, paymentId 
           )}
         </div>
 
-        {status === "successful" && <button className="action-button">Proceed</button>}
+        {status === "approved" && <button className="action-button">Proceed</button>}
 
         {status === "failed" && (
           <div className="failed-actions">

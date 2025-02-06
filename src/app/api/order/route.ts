@@ -60,3 +60,12 @@ export async function POST(request: NextRequest) {
   // Devuelve la URL de redirección
   return NextResponse.json({ init_point: newPref.init_point });
 }
+
+export async function GET(request:NextRequest){
+  const { searchParams } = request.nextUrl;
+  const paymentRef = searchParams.get("external_reference")
+
+  const paymentData = await Payment.findOne({ where: { transactionId: paymentRef } });
+
+  return NextResponse.json({paymentData})
+}

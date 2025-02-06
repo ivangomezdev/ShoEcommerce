@@ -10,13 +10,7 @@ export const cartAtom = atom<Product[]>([]);
 
 
 export const fetcher = async (url: string) => {
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ /* tus datos aquí */ }),
-      });
+    const response = await fetch(url)
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
@@ -25,7 +19,7 @@ export const fetcher = async (url: string) => {
   
 
   export function usePaymentData() {
-    const { data, error, isLoading } = useSWR('/api/ipn/mercadopago', fetcher);
+    const { data, error, isLoading } = useSWR('/api/order', fetcher);
   
     return {
       data,
