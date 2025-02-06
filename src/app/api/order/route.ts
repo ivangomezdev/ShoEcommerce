@@ -62,12 +62,14 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request:NextRequest){
-  const searchParams = request.nextUrl;
+  const searchParams = request.nextUrl.searchParams;
   console.log(searchParams,"PARAMS");
-
+  const searchParams2 = request.nextUrl;
+  console.log(searchParams2,"PARAMS2");
+  console.log(request,"REQUEST");
   
   
-  const paymentData = await Payment.findOne({ where: { transactionId: paymentRef } });
+  const paymentData = await Payment.findOne({ where: { transactionId: "paymentRef" } });
 
   return NextResponse.json({paymentData})
 }
