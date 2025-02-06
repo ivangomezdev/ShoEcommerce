@@ -10,8 +10,7 @@ const Page = () => {
  
 
   const { Paymentdata,isLoading } = usePaymentData();
-
-  console.log(Paymentdata?.paymentData);
+  const payData = Paymentdata?.paymentData
   
   
   
@@ -21,11 +20,11 @@ const Page = () => {
     <div>
 {isLoading ?  <>Cargando</> :
       <PaymentStatusCard
-        status="confirmed"
+        status={payData.status}
         to="ShoEcommerce@ecommerce.com"
-        amount={11}
-        date="1"
-        paymentId="2"
+        amount={payData.amount}
+        date={payData.date}
+        paymentId={payData.transactio}
       />
     }
     </div>
