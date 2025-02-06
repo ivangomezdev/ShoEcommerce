@@ -14,7 +14,7 @@ const PaymentComponent = () => {
       console.error("No hay productos en el carrito.");
       return;
     }
-    const transactionIdRandom = Math.floor(Math.random() + 1000)
+    const transactionIdRandom = Math.floor(Math.random() * 1000) + 1000
 
     const transactionId = transactionIdRandom; // Genera o maneja un ID de transacción
 
