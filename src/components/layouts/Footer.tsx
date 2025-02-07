@@ -9,7 +9,7 @@ const Footer = () => {
   </div>
   <div>
     <span>Hecho por </span>
-    <a href="https://coreui.io">Iván Gómez</a>
+  Iván Gómez
   </div>
 
   <img src='/assets/mercadopago.webp'></img>

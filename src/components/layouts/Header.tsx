@@ -167,7 +167,8 @@ export default function Header() {
             className="header__itemCont"
             sx={{
               display: { xs: "none", md: "flex" },
-              gap: "16px",
+              gap: "53px",
+              fontSize:"17px",
               position: "absolute",
               left: "50%",
               transform: "translateX(-50%)",

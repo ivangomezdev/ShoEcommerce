@@ -1,3 +1,8 @@
+.header__itemCont{
+  display:flex !important;
+  justify-content: space-around !important;
+  }
+
 .header__itemCont a{
 text-decoration: none;
 }
@@ -24,5 +29,6 @@ text-decoration: none;
 .header__item:hover::after {
   width: 100%;
 }
+
 
 
