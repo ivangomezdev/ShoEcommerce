@@ -67,8 +67,8 @@ export default function Header() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Mi Cuenta</MenuItem>
     </Menu>
   );
 
@@ -240,6 +240,7 @@ export default function Header() {
                 </Badge>
               </IconButton>
             </Link>
+            <Link href={"/me"}>
             <IconButton
               size="large"
               edge="end"
@@ -250,6 +251,7 @@ export default function Header() {
             >
               <AccountCircle />
             </IconButton>
+            </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
