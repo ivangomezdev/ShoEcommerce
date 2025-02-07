@@ -1,11 +1,7 @@
-.paymentStatus__body{
-    display: flex;
-    flex-direction: column;
-    
-}
+
 
 .paymentStatus__cont{
-    align-items: center;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
 }

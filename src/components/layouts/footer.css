@@ -11,3 +11,12 @@
 .footer__cont img{
 width: 100px;
 }
+
+@media (max-width:500px){
+    .footer__cont{
+      display: flex;
+      flex-direction: column;
+    
+    }
+
+}
