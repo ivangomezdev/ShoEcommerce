@@ -1,5 +1,5 @@
 .cartCheckOut__cont {
-  border: solid 3px #0a58ca;
+  border: solid 3px #952349;
   width: 43%;
 
   border-radius: 10px;
@@ -51,7 +51,7 @@
 
 .cartCheckOut__button:hover {
  
-    background-color: #952349b5 !important;
+    background-color: #952349db !important;
   }
 
   .cartCheckOut__delete{
