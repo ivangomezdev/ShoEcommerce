@@ -1,56 +1,55 @@
-"use client";
-import * as React from "react";
-import "./header.css";
+"use client"
+import * as React from "react"
+import "./header.css"
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Toolbar from "@mui/material/Toolbar"
 
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import IconButton from "@mui/material/IconButton";
-import Link from "next/link";
-import { useAtom } from "jotai";
-import { cartAtom } from "@/hooks/UseCart";
+import Badge from "@mui/material/Badge"
+import MenuItem from "@mui/material/MenuItem"
+import Menu from "@mui/material/Menu"
+import AccountCircle from "@mui/icons-material/AccountCircle"
+import SearchIcon from "@mui/icons-material/Search"
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import MoreIcon from "@mui/icons-material/MoreVert"
+import HomeIcon from "@mui/icons-material/Home"
+import InfoIcon from "@mui/icons-material/Info"
+import IconButton from "@mui/material/IconButton"
+import Link from "next/link"
+import { useAtom } from "jotai"
+import { cartAtom } from "@/hooks/UseCart"
 
 export default function Header() {
-  const [cart, setCart] = useAtom(cartAtom);
+  const [cart, setCart] = useAtom(cartAtom)
 
   React.useEffect(() => {
-    const cartData = localStorage.getItem("cart");
+    const cartData = localStorage.getItem("cart")
     if (cartData) {
-      setCart(JSON.parse(cartData));
+      setCart(JSON.parse(cartData))
     }
-  }, [setCart]);
+  }, [setCart])
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const isMenuOpen = Boolean(anchorEl)
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
   const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+    setMobileMoreAnchorEl(null)
+  }
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+    setAnchorEl(null)
+    handleMobileMenuClose()
+  }
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+    setMobileMoreAnchorEl(event.currentTarget)
+  }
 
-  const menuId = "primary-search-account-menu";
+  const menuId = "primary-search-account-menu"
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -70,9 +69,9 @@ export default function Header() {
       <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
       <MenuItem onClick={handleMenuClose}>Mi Cuenta</MenuItem>
     </Menu>
-  );
+  )
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = "primary-search-account-menu-mobile"
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -89,11 +88,7 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Link
-        href="/"
-        passHref
-        style={{ color: "inherit", textDecoration: "none" }}
-      >
+      <Link href="/" passHref style={{ color: "inherit", textDecoration: "none" }}>
         <MenuItem>
           <IconButton size="large" aria-label="home" color="inherit">
             <HomeIcon />
@@ -102,11 +97,7 @@ export default function Header() {
           <p>Inicio</p>
         </MenuItem>
       </Link>
-      <Link
-        href="/about"
-        passHref
-        style={{ color: "inherit", textDecoration: "none" }}
-      >
+      <Link href="/about" passHref style={{ color: "inherit", textDecoration: "none" }}>
         <MenuItem>
           <IconButton size="large" aria-label="about us" color="inherit">
             <InfoIcon />
@@ -116,11 +107,7 @@ export default function Header() {
         </MenuItem>
       </Link>
       <MenuItem>
-        <Link
-          href="/products"
-          passHref
-          style={{ color: "inherit", textDecoration: "none" }}
-        >
+        <Link href="/products" passHref style={{ color: "inherit", textDecoration: "none" }}>
           <IconButton size="large" aria-label="search" color="inherit">
             <SearchIcon />
           </IconButton>
@@ -128,11 +115,7 @@ export default function Header() {
         <p>Productos</p>
       </MenuItem>
 
-      <Link
-        href="/cart"
-        passHref
-        style={{ color: "inherit", textDecoration: "none" }}
-      >
+      <Link href="/cart" passHref style={{ color: "inherit", textDecoration: "none" }}>
         <MenuItem>
           <IconButton size="large" aria-label="show cart items" color="inherit">
             <Badge badgeContent={cart.length} color="error">
@@ -143,11 +126,7 @@ export default function Header() {
           <p>Carrito</p>
         </MenuItem>
       </Link>
-      <Link
-        style={{ color: "inherit", textDecoration: "none" }}
-        passHref
-        href={"/me"}
-      >
+      <Link style={{ color: "inherit", textDecoration: "none" }} passHref href={"/me"}>
         <MenuItem>
           <IconButton
             size="large"
@@ -162,23 +141,22 @@ export default function Header() {
         </MenuItem>
       </Link>
     </Menu>
-  );
+  )
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "#952349" }}>
         <Toolbar
           sx={{
             justifyContent: "space-between",
             height: { xs: "64px", md: "80px" },
             minHeight: { xs: "64px", md: "80px" },
-            padding: "0 16px", // Added padding
+            padding: "0 16px",
           }}
         >
           <img
             style={{
               width: "150px",
-
               objectFit: "contain",
             }}
             src="/assets/shoecommerce.png"
@@ -195,62 +173,41 @@ export default function Header() {
               transform: "translateX(-50%)",
             }}
           >
-            <Link
-              href={"/"}
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
+            <Link href={"/"} style={{ color: "inherit", textDecoration: "none" }}>
               <p className="header__item">Inicio</p>
             </Link>
-            <Link
-              href={"/about"}
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
+            <Link href={"/about"} style={{ color: "inherit", textDecoration: "none" }}>
               <p className="header__item">Sobre nosotros</p>
             </Link>
-            <Link
-              href={"/products"}
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
+            <Link href={"/products"} style={{ color: "inherit", textDecoration: "none" }}>
               <p className="header__item">Productos</p>
             </Link>
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link
-              href="/products"
-              passHref
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
+            <Link href="/products" passHref style={{ color: "inherit", textDecoration: "none" }}>
               <IconButton size="large" aria-label="search" color="inherit">
                 <SearchIcon />
               </IconButton>
             </Link>
-            <Link
-              href="/cart"
-              passHref
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              <IconButton
-                size="large"
-                aria-label="show cart items"
-                color="inherit"
-              >
+            <Link href="/cart" passHref style={{ color: "inherit", textDecoration: "none" }}>
+              <IconButton size="large" aria-label="show cart items" color="inherit">
                 <Badge badgeContent={cart.length} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
             </Link>
-            <Link href={"/me"}>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            <Link href={"/me"} style={{ color: "inherit", textDecoration: "none" }}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
             </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -270,5 +227,6 @@ export default function Header() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
-  );
+  )
 }
+
